@@ -1,0 +1,30 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Management App</title>
+</head>
+<body>
+  <h1>Games List</h1>
+  <h2><%= category %></h2>
+  <div><%= description %></div>
+  
+  <ul>
+      <% games.forEach(game => { %>
+        <li> <%= game.game_title %>, <%= game.game_price %></li> <a href="/game/<%= game.id %>">view</a>
+      <% }) %>
+  </ul>
+  <form action="/<%= categoryId %>/addgame" method="POST">
+    <div>Add a game</div>
+    <label for="gameTitle">Game Title: </label>
+    <input type="text" name="game_title" id="game_title" required>
+    <label for="price">Price: </label>
+    <input type="number" name="game_price" id="game_price" required>
+    <button type="submit">Submit</button>
+  </form>
+  <form action="/<%= categoryId %>/delete" method="POST" onsubmit="return confirm('are you sure?')">
+    <button type="submit">Delete category</button>
+  </form>
+  <a href="/">Back home</a>
+</body>
+</html>

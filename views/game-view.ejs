@@ -1,0 +1,27 @@
+<!-- views/edit-category.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Management App</title>
+</head>
+<body>
+  <h1>Edit Game</h1>
+  <%- include("partials/errors.ejs") %>
+  <form action="/game/<%= game.id %>/edit" method="POST">
+    <label for="gameTitle">Game Title: </label>
+    <input type="text" name="game_title" id="game_title" value="<%= game.game_title%>" required>
+    <label for="price">Price: </label>
+    <input type="number" name="game_price" id="game_price" value="<%= game.game_price%>" required>
+    <label for="category_id">Category: </label>
+    <select name="category_id" id="category_id" required>
+        <% categories.forEach(cat => { %>
+        <option value="<%= cat.id %>" <%= cat.id === game.category_id ? 'selected' : '' %>><%= cat.categories_title %></option>
+            <% }) %>
+
+    </select>
+    <button type="submit">Update</button>
+  </form>
+
+  <a href="/">Back home</a>
+</body>
+</html>
