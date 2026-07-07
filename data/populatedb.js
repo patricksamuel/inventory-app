@@ -4,7 +4,8 @@ const { Client } = require("pg");
 require("dotenv").config();
 const SQL = `
 
-
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS categories;
 
 CREATE TABLE IF NOT EXISTS categories (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
