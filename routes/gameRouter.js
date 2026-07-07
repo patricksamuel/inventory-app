@@ -16,6 +16,8 @@ router.post("/:categoriesId/delete",gameController.categoryDelete)
 //Games Router
 router.get("/game/:id", gameController.gameViewGet)
 router.post("/game/:id/edit",gameController.gameViewPost)
+router.post("/game/:id/delete",gameController.gameDelete)
+
 router.post("/:categoryId/addgame",gameController.gameAddtoCategoryPost)
 
 module.exports = router;

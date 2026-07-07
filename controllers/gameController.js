@@ -139,3 +139,15 @@ exports.categoryDelete = async (req,res)=>{
     res.render("index",{categories: categories});
 }
 
+exports.gameDelete = async (req,res)=>{
+    console.log("gameDelete dleting a game")
+    const gameId = Number(req.params.id);
+    const oldGameInfo = await db.getSpecificGameInfo(gameId)
+    console.log(oldGameInfo)
+    const oldCategoryId = oldGameInfo.category_id
+    console.log("id to be deleted is", gameId)
+    await db.deleteGame(gameId);
+    res.redirect("/"+oldCategoryId);
+}
+
+

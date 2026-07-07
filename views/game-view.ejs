@@ -21,6 +21,9 @@
     </select>
     <button type="submit">Update</button>
   </form>
+    <form action="/game/<%= game.id %>/delete" method="POST" onsubmit="return confirm('are you sure?')">
+    <button type="submit">Delete Game</button>
+  </form>
 
   <a href="/">Back home</a>
 </body>

@@ -44,3 +44,9 @@ exports.getSpecificGameInfo = async (id) => {
     const {rows} = await pool.query("SELECT * from items WHERE id = $1;",[id])
     return rows [0];
 }
+
+exports.deleteGame = async (id) => {
+
+    await pool.query("DELETE FROM items WHERE id = $1;",[id])
+}
+
