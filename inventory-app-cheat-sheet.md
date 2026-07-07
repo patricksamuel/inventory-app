@@ -46,7 +46,7 @@ node_modules/
 ### .env (local development)
 ```dotenv
 PORT=3000
-DATABASE_URL=postgresql://admin:db1234@localhost:5432/inventory-app-db
+DATABASE_URL=postgresql://XXXX:XXXX@localhost:5432/inventory-app-db
 ```
 
 > No spaces after `=`. Spaces get included in the value and break things.
